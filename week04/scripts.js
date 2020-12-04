@@ -1,6 +1,6 @@
 function transformUppercase(){
     let a = document.getElementById("namaPengguna");
-    a.value = a.value.toUpperCase();
+    a.value = a.value.toUppercase();
 }
 
 let elUsername = document.getElementById("namaPengguna"); 
