@@ -15,7 +15,7 @@ function haversine(lat1,lon1,lat1,lat2){
 
 if(typeof Number.prototype.toRad == "undefined"){
     Number.prototype.toRad = function(){
-        return this * Math.PI/180;
+        return this * Math.PI / 180;
     }
 }
 
@@ -33,3 +33,33 @@ function calculateDistances(lat, lon){
 
     return[d1,d2,d3];
 }
+
+let elLocate = document.getElementById("locate");
+elLocate.addEventListener("click", function(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(function(position){
+            let elLat = document.getElementById("lat");
+            let elLong = document.getElementById("long");
+            let elDepulze = document.getElementById("depulze");
+            let elSunway = document.getElementById("sunway");
+            let elKlcc = document.getElementById("klcc");
+
+            let userLat = position.coords.latitude;
+            let userLong = position.coords.longitude;
+
+            let distances = calculateDistances(userLat, userLong);
+
+            elLat.innerHTML = "Your latitude : " + userLat;
+            elLong.innerHTML = "Your longitude : " + userLong;
+            elDepulze.innerHTML = "Distance to De Pulze, CJ is " + distances[0];
+            elSunway.innerHTML = "Distance to De Pulze, CJ is " + distances[1];
+            elKlcc.innerHTML = "Distance to De Pulze, CJ is " + distances[3];
+
+
+        });
+
+    }else {
+        alert("Geolocation is not supported")
+    }
+
+});
