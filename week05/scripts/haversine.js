@@ -52,8 +52,8 @@ elLocate.addEventListener("click", function(){
             elLat.innerHTML = "Your latitude : " + userLat;
             elLong.innerHTML = "Your longitude : " + userLong;
             elDepulze.innerHTML = "Distance to De Pulze, CJ is " + distances[0];
-            elSunway.innerHTML = "Distance to De Pulze, CJ is " + distances[1];
-            elKlcc.innerHTML = "Distance to De Pulze, CJ is " + distances[2];
+            elSunway.innerHTML = "Distance to Sunway Pyramid is " + distances[1];
+            elKlcc.innerHTML = "Distance to KLCC is " + distances[2];
 
 
         });
