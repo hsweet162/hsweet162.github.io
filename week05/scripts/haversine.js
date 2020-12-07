@@ -1,4 +1,4 @@
-function haversine(lat1,lon1,lat1,lat2){
+function haversine(lon1,lon2,lat1,lat2){
     let R = 6371; //earth radiius in KM
     let dLat = (lat2-lat1).toRad();
     let dLon = (lon2-lon1).toRad();
