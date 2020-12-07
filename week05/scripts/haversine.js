@@ -59,7 +59,7 @@ elLocate.addEventListener("click", function(){
         });
 
     }else {
-        alert("Geolocation is not supported")
+        alert("Geolocation is not supported");
     }
 
 });
