@@ -11,4 +11,12 @@ window.onload = function(){
     pauseBtn.addEventListener("click", function(){
         video.pause();
     });
+
+    let freezeBtn = document.getElementById("pauseBtn");
+    freezeBtn.addEventListener("mousedown", function(){
+        video.pause();
+    });
+    freezeBtn.addEventListener("mouseup", function(){
+        video.play();
+    });
 };
