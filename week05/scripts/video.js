@@ -11,4 +11,4 @@ window.onload = function(){
     pauseBtn.addEventListener("click", function(){
         video.pause();
     });
-}
+};
