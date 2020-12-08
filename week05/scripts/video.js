@@ -12,7 +12,7 @@ window.onload = function(){
         video.pause();
     });
 
-    let freezeBtn = document.getElementById("pauseBtn");
+    let freezeBtn = document.getElementById("freezeBtn");
     freezeBtn.addEventListener("mousedown", function(){
         video.pause();
     });
