@@ -1,5 +1,5 @@
 window.onload = function(){
-    lat video = document.getElementById("myVideo");
+    let video = document.getElementById("myVideo");
 
     let playBtn = document.getElementById("playBtn");
     playBtn.addEventListener("click",function(){
