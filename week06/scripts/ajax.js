@@ -1,8 +1,8 @@
-function getRandomUser(){
+function getRandomUser() {
     let xhttp = new XMLHttpRequest(); //create request obj
 
-    xhttp.onreadystatechange = function(){
-        if(this.readystate == 4 && this.status == 200){
+    xhttp.onreadystatechange = function () {
+        if (this.readystate == 4 && this.status == 200) {
             let data = JSON.parse(this.response);
             let elFirstName = document.getElementById("firstName");
             let elLastName = document.getElementById("lastName");
@@ -14,7 +14,13 @@ function getRandomUser(){
 
             elFirstName.innerHTML = data.results[0].name.first;
             elUserImage.src = data.results[0].picture.large;
-            elUserImage.title = data.results[0].name.first + " " +data.results[0].name.last;
+            elUserImage.title = data.results[0].name.first + " " + data.results[0].name.last;
+            elLastName.innerHTML = data.results[0].name.last;
+            elPhone.innerHTML = data.results[0].phone;
+            elAddress.innerHTML = data.results[0].location.street.number + ", " +
+                data.results[0].location.street.name + "";
+
+
 
             elJsonResult.innerHTML = this.response;
         }
@@ -25,6 +31,6 @@ function getRandomUser(){
 }
 
 let elGetRandomUser = document.getElementById("getRandomUserBtn");
-elGetRandomUser.addEventListener("click", function(){
+elGetRandomUser.addEventListener("click", function () {
     getRandomUser();
 });
