@@ -1,5 +1,5 @@
 function GetBookings() {
-    let url = 'https://dashboard.sheety.co/projects/5fd8a94536fefc7e9ca3b134/sheets/bookings';
+    let url = 'https://api.sheety.co/ea5259d345192b979c0435d911586ff7/bookingApp/bookings';
     fetch(url)
         .then((response) => response.json())
         .then(json => {
