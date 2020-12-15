@@ -3,7 +3,7 @@ function GetBookings() {
     fetch(url)
         .then((response) => response.json())
         .then(json => {
-            //Do somrthing with the data
+            //Do something with the data
             console.log(json.bookings);
             let bookingList = document.getElementById("bookingList");
             bookingList.innerHTML = "";
@@ -29,4 +29,42 @@ function GetBookings() {
 let getBookingBtn = document.getElementById("getBooking");
 getBookingBtn.addEventListener("click", function () {
     GetBookings();
+});
+
+function BookNow(guestName, guestEmail, guestPax) {
+    let url = 'https://api.sheety.co/ea5259d345192b979c0435d911586ff7/bookingApp/bookings';
+    let body = {
+        booking: {
+            name: guestName,
+            email: guestEmail,
+            pax: guestPax
+        }
+    }
+    fetch(url, {
+
+        methid: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then((response) => response.json())
+        .then(json => {
+            //Do something with the data
+            //console.log(json.bookings);
+            let bookingMsg = document.getElementById("bookingMsg");
+            bookingMsg.innerHTML = json.booking.name + " added!";
+            GetBookings();
+
+        });
+}
+
+let bookNow = document.getElementById("bookNow");
+bookNow.addEventListener("click", function () {
+    let gName = document.getElementById("guestName").Value;
+    let gEmail = document.getElementById("guestEmail").Value;
+    let gPax = document.getElementById("guestPax").Value;
+
+    BookNow(gName, gEmail, gPax);
+
 });
