@@ -1,5 +1,5 @@
 function GetBookings() {
-    let url = 'https://api.sheety.co/b9b23bacbce0fa05289abc34d8cf52e6/bookingApp/bookings';
+    let url = 'https://api.sheety.co/ea5259d345192b979c0435d911586ff7/bookingApp/bookings';
     fetch(url)
         .then((response) => response.json())
         .then(json => {
@@ -30,7 +30,7 @@ getBookingBtn.addEventListener("click", function () {
 });
 
 function BookNow(guestName, guestEmail, guestPax) {
-    let url = 'https://api.sheety.co/b9b23bacbce0fa05289abc34d8cf52e6/bookingApp/bookings';
+    let url = 'https://api.sheety.co/ea5259d345192b979c0435d911586ff7/bookingApp/bookings';
     let body = {
         booking: {
             name: guestName,
@@ -62,4 +62,22 @@ bookNow.addEventListener("click", function () {
     let gPax = document.getElementById("guestPax").value;
 
     BookNow(gName, gEmail, gPax);
+});
+
+function DeleteBooking(id) {
+    let url = 'https://api.sheety.co/ea5259d345192b979c0435d911586ff7/bookingApp/bookings/2' + id;
+    fetch(url, {
+        method: 'DELETE',
+    })
+        .then((response) => response.json())
+        .then(() => {
+            document.getElementById("deleteMsg").innerHTML = "Booking Delete";
+            GetBookings();
+        });
+}
+
+let deleteBooking = document.getElementById("deleteBooking");
+deleteBooking.addEventListener("click", function () {
+    let deleteId = doc.getElementById("deleteId").value;
+    DeleteBooking(deleteId);
 });
