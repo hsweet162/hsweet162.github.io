@@ -1,9 +1,9 @@
 function GetBookings() {
-    let url = 'https://api.sheety.co/ea5259d345192b979c0435d911586ff7/bookingApp/bookings';
+    let url = 'https://api.sheety.co/b9b23bacbce0fa05289abc34d8cf52e6/bookingApp/bookings';
     fetch(url)
         .then((response) => response.json())
         .then(json => {
-            //Do something with the data
+            // Do something with the data
             console.log(json.bookings);
             let bookingList = document.getElementById("bookingList");
             bookingList.innerHTML = "";
@@ -11,19 +11,17 @@ function GetBookings() {
             let jsonDiv = document.getElementById("json");
             jsonDiv.innerHTML = "";
             jsonDiv.innerHTML = json.bookings;
+
             for (let i = 0; i < json.bookings.length; i++) {
                 let gName = json.bookings[i].name;
-                let gmail = json.bookings[i].email;
+                let gEmail = json.bookings[i].email;
                 let gPax = json.bookings[i].pax;
                 let gId = json.bookings[i].id;
 
-                bookingList.innerHTML += gId + "-" + gName + ", " + gEmail + ", pax:" + gPax + "<br>";
-
+                bookingList.innerHTML += gId + "-" + gName + ", " +
+                    gEmail + ", pax:" + gPax + "<br>";
             }
         });
-
-
-
 }
 
 let getBookingBtn = document.getElementById("getBooking");
@@ -32,7 +30,7 @@ getBookingBtn.addEventListener("click", function () {
 });
 
 function BookNow(guestName, guestEmail, guestPax) {
-    let url = 'https://api.sheety.co/ea5259d345192b979c0435d911586ff7/bookingApp/bookings';
+    let url = 'https://api.sheety.co/b9b23bacbce0fa05289abc34d8cf52e6/bookingApp/bookings';
     let body = {
         booking: {
             name: guestName,
@@ -41,7 +39,6 @@ function BookNow(guestName, guestEmail, guestPax) {
         }
     }
     fetch(url, {
-
         method: 'POST',
         body: JSON.stringify(body),
         headers: {
@@ -50,21 +47,19 @@ function BookNow(guestName, guestEmail, guestPax) {
     })
         .then((response) => response.json())
         .then(json => {
-            //Do something with the data
-            //console.log(json.bookings);
-            let bookingMsg = document.getElementById("bookingMsg");
-            bookingMsg.innerHTML = json.booking.name + " added!";
+            // Do something with object
+            //console.log(json.booking);
+            let bookMsg = document.getElementById("bookMsg");
+            bookMsg.innerHTML = json.booking.name + " added!"
             GetBookings();
-
         });
 }
 
 let bookNow = document.getElementById("bookNow");
 bookNow.addEventListener("click", function () {
-    let gName = document.getElementById("guestName").Value;
-    let gEmail = document.getElementById("guestEmail").Value;
-    let gPax = document.getElementById("guestPax").Value;
+    let gName = document.getElementById("guestName").value;
+    let gEmail = document.getElementById("guestEmail").value;
+    let gPax = document.getElementById("guestPax").value;
 
     BookNow(gName, gEmail, gPax);
-
 });
