@@ -27,11 +27,11 @@ function GetBookings() {
                 row.insertCell(0).innerHTML = gId;
                 row.insertCell(1).innerHTML = gName;
                 row.insertCell(2).innerHTML = gTel;
-                row.insertCell(2).innerHTML = gDate;
-                row.insertCell(2).innerHTML = gTime;
-                row.insertCell(3).innerHTML = gPax;
-                row.insertCell(4).innerHTML = gRemarks;
-                row.insertCell(5).innerHTML = "<button id='" + buttonId + "' class='btn btn-danger'>Delete</button>";
+                row.insertCell(3).innerHTML = gDate;
+                row.insertCell(4).innerHTML = gTime;
+                row.insertCell(5).innerHTML = gPax;
+                row.insertCell(6).innerHTML = gRemarks;
+                row.insertCell(7).innerHTML = "<button id='" + buttonId + "' class='btn btn-danger'>Delete</button>";
 
                 bookingIds.push(buttonId);
 
