@@ -64,3 +64,10 @@ function DeleteBooking(id) {
             GetBookings();
         });
 }
+
+function replaceUndefined(vl) {
+    if (typeof (vl) === "undefined") {
+        return "0"; // return 0 as replace, and end function execution
+    }
+    return v1; // the above state was false, functions continues and return original value
+};
